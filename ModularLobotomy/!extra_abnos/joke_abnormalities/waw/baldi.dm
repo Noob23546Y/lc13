@@ -15,7 +15,11 @@
 		"5" = 0,
 		"6" = 0,
 		"8" = 0,
+<<<<<<< HEAD
 		"Gibberish" = -100,//there's still a chance baldi could accept this
+=======
+		"&%^@$#%@@!#%" = -100,//there's still a chance baldi could accept this
+>>>>>>> 36202bb767 (Baldi, his friends, his gear and his school)
 	)
 	work_attribute_types = list(
 		"3" = FORTITUDE_ATTRIBUTE,
@@ -197,8 +201,13 @@
 	layer = LARGE_MOB_LAYER
 	a_intent = INTENT_HARM
 	see_in_dark = 7//where I am?!?!!
+<<<<<<< HEAD
 	vision_range = 12
 	aggro_vision_range = 20//I don't need to hear to know where you are
+=======
+	vision_range = 100
+	aggro_vision_range = 100//I don't need to hear to know where you are
+>>>>>>> 36202bb767 (Baldi, his friends, his gear and his school)
 	pull_force = MOVE_FORCE_STRONG
 	can_buckle_to = FALSE
 	mob_size = MOB_SIZE_HUGE
@@ -254,6 +263,10 @@
 	icon = 'ModularLobotomy/_Lobotomyicons/32x32.dmi'
 	icon_state = "director"
 	icon_living = "director"
+<<<<<<< HEAD
+=======
+	icon_dead = "director_dead"
+>>>>>>> 36202bb767 (Baldi, his friends, his gear and his school)
 	faction = list("baldi") //fighting with others for power
 	maxHealth = 1600 //weaker than baldi
 	health = 1600
@@ -288,6 +301,7 @@
 
 /mob/living/simple_animal/hostile/math_bully
 	name = "Bully"
+<<<<<<< HEAD
 	desc = "A bulky pixelated boy in an orange shirt. He is gonna block your path. This is it for you."
 	icon = 'ModularLobotomy/_Lobotomyicons/32x32.dmi'
 	icon_state = "bully"
@@ -323,6 +337,49 @@
 	animate(src, alpha = 0, time = 5 SECONDS)
 	QDEL_IN(src, 5 SECONDS)
 	..()
+=======
+	desc = "A bulky pixelated boy in an orange shirt. He is blocking your path. This is it for you."
+	icon = 'ModularLobotomy/_Lobotomyicons/32x32.dmi'
+	icon_state = "bully"
+	icon_living = "bully"
+	maxHealth = 100
+	health = 100
+	attack_verb_continuous = "burps"
+	attack_verb_simple = "burp"
+	damage_coeff = list(BRUTE = 0, RED_DAMAGE = 0, WHITE_DAMAGE = 0, BLACK_DAMAGE = 0.2, PALE_DAMAGE = 0)
+	speak_emote = list("yawns")
+	faction = list("hostile", "baldi")
+
+	var/list/structures = list()
+
+/mob/living/simple_animal/hostile/math_bully/Life()
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(Berightback)), 3 MINUTES)
+	dir = pick(list(NORTH, SOUTH, WEST, EAST))
+	for(var/turf/open/U in range(2, src))
+		var/obj/structure/math_bullypath/P = new(U)
+		structures += P
+
+/mob/living/simple_animal/hostile/math_bully/Destroy()
+	QDEL_LIST(structures)
+	return ..()
+
+/mob/living/simple_animal/hostile/math_bully/Move()
+	return FALSE
+
+/mob/living/simple_animal/hostile/math_bully/CanAttack(atom/the_target)
+	return FALSE
+
+/mob/living/simple_animal/hostile/math_bully/proc/Berightback()
+	QDEL_LIST(structures)
+	QDEL_NULL(src)
+
+/obj/structure/math_bullypath
+	name = "bully path"
+	icon_state = "blank"
+	max_integrity = 666666
+	density = 1
+>>>>>>> 36202bb767 (Baldi, his friends, his gear and his school)
 
 /mob/living/simple_animal/hostile/math_playtime
 	name = "Playtime"
@@ -389,11 +446,19 @@
 	pull_force = MOVE_FORCE_STRONG
 	can_buckle_to = FALSE
 	mob_size = MOB_SIZE_HUGE
+<<<<<<< HEAD
 	maxHealth = 400 //have mercy on them
 	health = 400
 	rapid_melee = 2
 	move_to_delay = 2.2
 	damage_coeff = list(RED_DAMAGE = 2, WHITE_DAMAGE = 2, BLACK_DAMAGE = 2, PALE_DAMAGE = 2)
+=======
+	maxHealth = 1000 //have mercy on them
+	health = 1000
+	rapid_melee = 2
+	move_to_delay = 2.2
+	damage_coeff = list(RED_DAMAGE = 1.5, WHITE_DAMAGE = 1, BLACK_DAMAGE = 1, PALE_DAMAGE = 1)
+>>>>>>> 36202bb767 (Baldi, his friends, his gear and his school)
 	melee_damage_lower = 9
 	melee_damage_upper = 9
 	melee_damage_type = BLACK_DAMAGE

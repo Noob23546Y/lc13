@@ -269,12 +269,20 @@
 	desc = "The equations are hard, but they hold near infinite power. With this knowledge in your hands, you can divide anyone by zero."
 	icon_state = "math_perfection"//todo: improve sprite, add inhands
 	icon = 'ModularLobotomy/_Lobotomyicons/joke_abnos/joke_weapons.dmi'
+<<<<<<< HEAD
 	force = 165
+=======
+	force = 200
+>>>>>>> 36202bb767 (Baldi, his friends, his gear and his school)
 	attack_speed = 3
 	damtype = BLACK_DAMAGE
 	knockback = KNOCKBACK_MEDIUM
 	attack_verb_continuous = list("divides")
+<<<<<<< HEAD
 	attack_verb_simple = list("divide")
+=======
+	attack_verb_simple = list("divides")
+>>>>>>> 36202bb767 (Baldi, his friends, his gear and his school)
 	hitsound = 'sound/abnormalities/baldi/baldi-jumpscare.ogg'
 	attribute_requirements = list(
 							FORTITUDE_ATTRIBUTE = 100,
